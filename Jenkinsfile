@@ -8,15 +8,16 @@ pipeline {
          }
       }
       stage('Test'){
-          steps {
-             parallel(
-                a: {
-                   echo 'How are you'
-                }
-                b: { 
-                   echo 'Hope you are fine'
-                   }
-                )
+         parallel {
+                stage ( 'Selenium Web Test')
+            steps {
+                   echo 'Running selenium test'
+            }
+                stage ( 'Integration Test')
+            steps {
+                   echo 'Running Integration Test'
+            }
+             }
                  }
           }
            
