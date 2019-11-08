@@ -2,15 +2,21 @@ pipeline {
    agent any
 
    stages {
-      stage('Hello') {
+      stage('Build') {
          steps {
-            echo 'Hello Admin User'
+            echo 'Building Image'
          }
       }
-      stage('How are you'){
+      stage('Test'){
           steps {
-                  echo 'How are you'
-                  echo 'Hope you are fine'
+             parallel(
+                a: {
+                   echo 'How are you'
+                }
+                b: { 
+                   echo 'Hope you are fine'
+                   }
+                )
                  }
           }
            
