@@ -23,6 +23,25 @@ pipeline {
             }
              }
                  }
-           
+      stage('Push to Registry'){
+         steps {
+            echo 'Pushing Docker Image to Registry'
+         }
+      }
+      stage ('Deploy') {
+         steps {
+            echo 'Pull Image from Registry and Deploy to cluster'
+         }
+      }
+      stage ('Check status') {
+         steps {
+            echo 'Check Deployment status'
+         }
+      }
+      stage ('Send Notification about status') {
+      steps {
+         echo 'Send Email Notification about deployment status'
+      }
+      }
       }
    }
