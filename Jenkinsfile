@@ -9,11 +9,11 @@ pipeline {
       }
       stage('Test'){
          parallel {
-                stage ( 'Selenium Web Test')
+                stage ('Selenium Web Test')
             steps {
                    echo 'Running selenium test'
             }
-                stage ( 'Integration Test')
+                stage ('Integration Test')
             steps {
                    echo 'Running Integration Test'
             }
